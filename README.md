@@ -1,3 +1,4 @@
+#### Specs
 Inputs:
 - host name e.g. pleni.upd.edu.ph
 - ip address e.g. 202.92.128.181
@@ -23,3 +24,9 @@ Deadline is December 14 and our CTF will be on the 15th.
 
 https://www.hackthissite.org/
 scanme.nmap.org
+
+#### References
+http://www.primalsecurity.net/0x1-python-tutorial-port-scanner/
+http://www.pythonforbeginners.com/code-snippets-source-code/port-scanner-in-python
+http://code.activestate.com/recipes/576690-pyscanlogger-python-port-scan-detector/
+http://code.activestate.com/recipes/576690-pyscanlogger-python-port-scan-detector/
