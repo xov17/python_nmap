@@ -12,7 +12,7 @@ if __name__ == '__main__':
         s = socket(AF_INET, SOCK_STREAM)
 
         try:
-            s = socket(AF_INET, SOCK_STREAM)
+           
             result = s.connect_ex((targetIP, i))
             if(result == 0) :
                 print 'Port %d: OPEN' % (i,)
@@ -20,6 +20,7 @@ if __name__ == '__main__':
                 print 'Port %d: CLOSED' % (i,)
         except socket.timeout:
             print 'Socket Timeout on ', i
+            s.close()
         except socket.gaierror:
             print 'Hostname could not be resolved. Exiting'
             sys.exit()

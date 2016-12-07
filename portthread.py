@@ -3,17 +3,13 @@ from Queue import Queue
 import time
 import socket
 
-# a print_lock is what is used to prevent "double" modification of shared variables.
-# this is used so while one thread is using a variable, others cannot access
-# it. Once done, the thread releases the print_lock.
-# to use it, you want to specify a print_lock per thing you wish to print_lock.
 print_lock = threading.Lock()
 
 
 
 target = 'scanme.nmap.org'
 #ip = socket.gethostbyname(target)
-delay = 1
+delay = 3
 
 
 
@@ -24,7 +20,10 @@ def portscan(port):
         con = s.connect((target,port))
         with print_lock:
             print('port',port)
+      
         con.close()
+    except socket.timeout:
+        print "Socket timeout on " + str(port)
     except (KeyboardInterrupt, SystemExit):
         s.close()
     except:
@@ -43,9 +42,6 @@ def threader():
         # completed with the job
         q.task_done()
 
-
-
-        
 
 # Create the queue and threader 
 q = Queue()
